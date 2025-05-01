@@ -7,6 +7,7 @@ interface InputsProps {
   onchange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   borderColor?: string;
   focusBorderColor: string;
+  width?: string;
 }
 
 const Inputs: React.FC<InputsProps> = ({
@@ -16,13 +17,14 @@ const Inputs: React.FC<InputsProps> = ({
   onchange,
   borderColor,
   focusBorderColor,
+  width = "300px",
 }) => {
   const [isFocused, setIsFocused] = useState(false); 
 
   return (
     <div className="relative">
       <input
-        className="border-0 rounded-2xl p-2 mb-4 bg-white text-sm w-[300px] focus:outline-0"
+        className={`border-0 rounded-2xl p-2 mb-2 m-2 bg-white text-sm w-[${width}] focus:outline-0`}
         type={type}
         placeholder={placeholder}
         value={value}

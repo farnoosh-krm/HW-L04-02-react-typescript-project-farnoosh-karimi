@@ -1,32 +1,16 @@
 import React from "react";
-import styled from "./ErrorPage.module.scss";
-import { isRouteErrorResponse, Link, useRouteError } from "react-router-dom";
+import errorPage from "../../images/error.jpg"
 
 const ErrorPage: React.FC = () => {
-  const error = useRouteError();
-  const routError = isRouteErrorResponse(error);
-  console.log("route error : ", routError);
+  
 
   return (
-    <div className={styled.mainContent}>
-      <div className={styled.textContent}>
-        <h1>OOOOPSS!!</h1>
-        <h2>{isRouteErrorResponse(error) ? "ERROR 404" : null}</h2>
+      <div className="flex flex-col items-center justify-start mt-8">
+        <h1 className="text-3xl font-bold text-gray-800">OOPS!!</h1>
+        <h3 className="text-2xl font-bold text-gray-800 mt-8">Error 404!!</h3>
+        <h3 className="text-2xl font-bold text-gray-800">Page Not Found</h3>
+        <img className="h-[350px] w-[350px] rounded-[50%] mt-6" src={errorPage} alt="error page" />
       </div>
-
-      <div className={styled.imageContent}></div>
-
-      <div className={styled.bottomContent}>
-        <p>
-          {isRouteErrorResponse(error)
-            ? "PAGE NOT FOUND :("
-            : "SOMETHING BAD HAPPENED"}
-        </p>
-        <Link className={styled.links} to="/">
-          Back to Home Page.
-        </Link>
-      </div>
-    </div>
   );
 };
 

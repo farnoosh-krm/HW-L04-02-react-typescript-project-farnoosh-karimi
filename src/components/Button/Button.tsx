@@ -6,8 +6,8 @@ interface ButtonProps {
   widthBtn: string;
   colorBtn?: string; // رنگ اصلی دکمه
   colorBtnText?: string; // رنگ متن دکمه
-  colorBtnHover?: string; // رنگ دکمه در حالت hover
-  colorBtnActive?: string; // رنگ دکمه در حالت active
+  colorBtnHover?: string; // رنگ دکمه  hover
+  colorBtnActive?: string; // رنگ دکمه   active
   onclick?: () => void;
 }
 
@@ -25,7 +25,7 @@ const Button: React.FC<ButtonProps> = ({
     <div>
       <button
     
-        className={`p-1.5 rounded-2xl shadow-lg shadow-black/30 mt-2 ml-2 hover:cursor-pointer hover:text-white font-medium ${colorBtn} ${colorBtnText} ${colorBtnHover} ${colorBtnActive}`}
+        className={`p-1.5 rounded-2xl shadow-lg shadow-black/30 m-2 ml-2 hover:cursor-pointer hover:text-white font-medium ${colorBtn} ${colorBtnText} ${colorBtnHover} ${colorBtnActive}`}
         type={type}
         style={{ width: widthBtn ,backgroundColor: colorBtn, color: colorBtnText }}
         onClick={onclick}

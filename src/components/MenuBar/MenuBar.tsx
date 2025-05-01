@@ -16,9 +16,18 @@ const MenuBar = () => {
               <NavLink 
                 className={({isActive})=> isActive ? "font-bold text-black border-b-4 border-purple-900" : "text-gray-800"}
                 to="/project">
-                    Project
+                    Add Project
                 </NavLink>
               </li>
+
+              <li>
+              <NavLink 
+                className={({isActive})=> isActive ? "font-bold text-black border-b-4 border-purple-900" : "text-gray-800"}
+                to="/project-list">
+                    Project List
+                </NavLink>
+              </li>
+
 
               <li>
               <NavLink 
@@ -41,7 +50,7 @@ const MenuBar = () => {
               <NavLink 
                 className={({isActive})=> isActive ? "font-bold text-black border-b-4 border-purple-900" : "text-gray-800"}
                 to="/sign-in">
-                    Sign In
+                    Account
                 </NavLink>
               </li>
         </ul>

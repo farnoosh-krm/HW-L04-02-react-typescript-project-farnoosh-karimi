@@ -3,10 +3,12 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
 import MenuBar from './components/MenuBar/MenuBar';
 import HomePage from './pages/HomePage';
-import ProjectPage from './pages/ProjectPage';
+import AddProjectPage from './pages/ProjectPage';
 import TaskPage from './pages/TaskPage';
 import UserManagement from './pages/UserManagement';
-import SignIn from './pages/SignIn';
+import AccountInfo from './pages/SignIn/AccountInfo';
+import ErrorPage from './pages/ErrorPage';
+import ProjectList from './pages/ProjectList/ProjectList';
 
 function App() {
   return (
@@ -15,10 +17,13 @@ function App() {
 
       <Routes>
         <Route path='/' element={<HomePage />} />
-        <Route path='/project' element={<ProjectPage />} />
+        <Route path='/project' element={<AddProjectPage />} />
+        <Route path='/project-list' element={<ProjectList />} />
         <Route path='/tasks' element={<TaskPage />} />
+        <Route path='/task/:projectId' element={<TaskPage />} />
         <Route path='/user-management' element={<UserManagement />} />
-        <Route path='/sign-in' element={<SignIn />} />
+        <Route path='/sign-in' element={<AccountInfo/>} />
+        <Route path='/*' element={<ErrorPage/>} />
       </Routes>
 
       

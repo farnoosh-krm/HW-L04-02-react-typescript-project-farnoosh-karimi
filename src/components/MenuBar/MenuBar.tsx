@@ -29,13 +29,13 @@ const MenuBar = () => {
               </li>
 
 
-              <li>
+              {/* <li>
               <NavLink 
                 className={({isActive})=> isActive ? "font-bold text-black border-b-4 border-purple-900" : "text-gray-800"}
                 to="/tasks">
                     Tasks
                 </NavLink>
-              </li>
+              </li> */}
 
 
               <li>
@@ -49,11 +49,13 @@ const MenuBar = () => {
               <li>
               <NavLink 
                 className={({isActive})=> isActive ? "font-bold text-black border-b-4 border-purple-900" : "text-gray-800"}
-                to="/sign-in">
-                    Account
+                to="/profile">
+                    Profile
                 </NavLink>
               </li>
         </ul>
+
+        
     </div>
   )
 }

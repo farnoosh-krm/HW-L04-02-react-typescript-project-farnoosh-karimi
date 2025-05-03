@@ -6,4 +6,5 @@ export type Task = {
     dueDate: string;
     status: "not started" | "to do" | "done";
     priority: "low" | "medium" | "high";
+    assignedTo?: number;
   };

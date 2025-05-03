@@ -8,15 +8,22 @@ import { useSelector } from 'react-redux';
 import { RootState } from '../../features/store';
 import { Task } from '../../types/Task';
 
-
-
 const TaskPage = () => {
   const [isPopUpOpen, setIsPopUpOpen] = useState(false);
+  const [searchTitle, setSearchTitle] = useState('');
+  const [selectedPriority, setSelectedPriority] = useState('');
+  const [selectedStatus, setSelectedStatus] = useState('');
+  
   const { projectId } = useParams<{ projectId: string }>();
   const numericProjectId = Number(projectId);
 
-  const tasks = useSelector((state: RootState) =>
-    state.tasks.filter((task: Task) => task.projectId === numericProjectId)
+  const filteredTasks = useSelector((state: RootState) =>
+    state.tasks.filter((task: Task) => 
+      task.projectId === numericProjectId &&
+      (task.title.toLowerCase().includes(searchTitle.toLowerCase()) || searchTitle === '') &&
+      (task.priority === selectedPriority || selectedPriority === '') &&
+      (task.status === selectedStatus || selectedStatus === '')
+    )
   );
 
   const handleAddTaskClick = () => {
@@ -30,45 +37,56 @@ const TaskPage = () => {
   return (
     <div className="mt-4 p-4 flex flex-col bg-white/60 h-[560px] rounded-2xl text-center">
       <div className='flex flex-row justify-between'>
-      <div className='flex flex-row'>
-        <Inputs type='text' placeholder='enter title' focusBorderColor='border-purple-500' width='250px'/>
-        <div className="flex flex-row gap-[50px] m-2">
-          <select className="bg-white w-[250px] h-[37px] rounded-2xl outline-0 border-0 focus:outline-0 p-2 text-sm focus:border-2 focus:border-amber-500">
-            <option selected disabled>choose priority</option> 
-            <option value="not started">low</option>
-            <option value="in progress">medium</option>
-            <option value="completed">high</option>
-          </select>
+        <div className='flex flex-row'>
+          <Inputs 
+            type='text' 
+            placeholder='enter title' 
+            focusBorderColor='border-purple-500' 
+            width='250px'
+            value={searchTitle}
+            onchange={(e) => setSearchTitle(e.target.value)}
+          />
+          
+          <div className="flex flex-row gap-[50px] m-2">
+            <select 
+              className="bg-white w-[250px] h-[37px] rounded-2xl outline-0 border-0 focus:outline-0 p-2 text-sm focus:border-2 focus:border-amber-500"
+              value={selectedPriority}
+              onChange={(e) => setSelectedPriority(e.target.value)}
+            >
+              <option value="" disabled>choose priority</option> 
+              <option value="low">low</option>
+              <option value="medium">medium</option>
+              <option value="high">high</option>
+            </select>
+          </div>
+
+          <div className="flex flex-row gap-[50px] m-2">
+            <select 
+              className="bg-white w-[250px] h-[37px] rounded-2xl outline-0 border-0 focus:outline-0 p-2 text-sm focus:border-2 focus:border-amber-500"
+              value={selectedStatus}
+              onChange={(e) => setSelectedStatus(e.target.value)}
+            >
+              <option value="" disabled>choose status</option>
+              <option value="not started">not started</option>
+              <option value="to do">to do</option>
+              <option value="done">done</option>
+            </select>
+          </div>
         </div>
 
-        <div className="flex flex-row gap-[50px] m-2">
-          <select className="bg-white w-[250px] h-[37px] rounded-2xl outline-0 border-0 focus:outline-0 p-2 text-sm focus:border-2 focus:border-amber-500">
-            <option selected disabled>choose status</option>
-            <option value="not started">Not Started</option>
-            <option value="in progress">In Progress</option>
-            <option value="completed">Completed</option>
-          </select>
+        <div>
+          <Button type='button' label='+ Add New Task' widthBtn='250px' colorBtn='bg-purple-600' onclick={handleAddTaskClick}/>
         </div>
 
-        <Button type='button' label='Search' widthBtn='100px' colorBtn='bg-purple-500'/>
-      </div>
-
-      <div>
-        <Button type='button' label='+ Add New Task' widthBtn='250px' colorBtn='bg-purple-600' onclick={handleAddTaskClick}/>
-      </div>
-
-      {isPopUpOpen && (
+        {isPopUpOpen && (
           <div className="fixed inset-0 z-50 flex items-center justify-center bg-white/80">
-            <PopUp onClose={handleClosePopUp} />
+            <PopUp onClose={handleClosePopUp} projectId={numericProjectId} />
           </div>
         )}
       </div>
-
-
       <div className="mt-4">
-        <TaskTable tasks={tasks} />
+        <TaskTable tasks={filteredTasks} />
       </div>
-      
     </div>
   );
 };

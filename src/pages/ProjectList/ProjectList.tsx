@@ -28,7 +28,7 @@ const ProjectList = () => {
   return (
     <div className="mt-4 p-4 flex flex-col justify-start items-center bg-white/60 h-[560px] rounded-2xl text-center">
       <h3 className='text-lg font-bold text-gray-800'>Project List</h3>
-      <table className='table-fixed w-[1400px] mt-4 border-separate border border-gray-400 bg-white/40 rounded-lg'>
+      <table className='table-fixed w-[1400px] mt-4 border-separate border border-gray-400 bg-white/40 rounded-lg overflow-y-auto'>
         <thead>
           <tr>
             <th className='border border-gray-300'>ID</th>

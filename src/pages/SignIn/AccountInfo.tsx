@@ -15,8 +15,8 @@ const AccountInfo: React.FC = () => {
   };
 
   return (
-    <div className="mt-4 p-4 flex flex-row justify-center items-center bg-white/60 h-[560px] rounded-2xl text-center">
-      <div className="h-[530px] w-[500px] bg-white/30 rounded-2xl shadow-2xl flex flex-col justify-center items-center">
+    <div className="mt-4 p-4 flex flex-row justify-center items-center h-[560px] rounded-2xl text-center">
+      <div className="h-[530px] w-[500px] bg-white/50 rounded-2xl shadow-2xl flex flex-col justify-center items-center">
         <div className="flex flex-row justify-center items-center mt-4">
           <Button
             type="button"

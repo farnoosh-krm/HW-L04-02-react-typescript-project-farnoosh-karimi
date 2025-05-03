@@ -16,7 +16,7 @@ const ProfileInfo = () => {
 
   const handleLogOut = () => {
     dispatch(logOut())
-    navigate('/Account')
+    navigate('/')
 };
 
   return (

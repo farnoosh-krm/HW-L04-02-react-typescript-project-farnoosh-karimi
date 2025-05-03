@@ -19,10 +19,10 @@ function AppContent() {
 
   return (
     <>
-      {location.pathname !== '/Account' && <MenuBar />}
+      {location.pathname !== '/' && <MenuBar />}
 
       <Routes>
-        <Route path='/' element={<ProtectRouts><HomePage /></ProtectRouts>} />
+        <Route path='/home' element={<ProtectRouts><HomePage /></ProtectRouts>} />
         <Route path='/project' element={<ProtectRouts><AddProjectPage /></ProtectRouts>} />
         <Route path='/project-list' element={<ProtectRouts><ProjectList /></ProtectRouts>} />
         <Route path='/tasks' element={<ProtectRouts><TaskPage /></ProtectRouts>} />
@@ -32,7 +32,7 @@ function AppContent() {
 
         <Route path='/user-management' element={<ProtectRouts><UserManagement /></ProtectRouts>} />
         <Route path='/profile' element={<ProtectRouts><ProfileInfo /></ProtectRouts>} />
-        <Route path='/Account' element={<AccountInfo />} />
+        <Route path='/' element={<AccountInfo />} />
         <Route path='/*' element={<ProtectRouts><ErrorPage /></ProtectRouts>} />
       </Routes>
     </>

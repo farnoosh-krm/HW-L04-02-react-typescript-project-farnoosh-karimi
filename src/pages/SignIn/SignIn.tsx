@@ -23,7 +23,7 @@ const SignIn:React.FC = () => {
 
     if (userMatch) {
       dispatch(signIn({ name: userMatch.name, password: userMatch.password }));
-      navigate("/");
+      navigate("/home");
     }
     
     else{

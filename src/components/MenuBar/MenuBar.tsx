@@ -6,7 +6,7 @@ const MenuBar = () => {
     <div className='p-5 flex flex-row items-start justify-between  bg-white/60 h-[65px] rounded-2xl'>
         <h1 className='flex flex-row items-start justify-start font-bold'>
           <NavLink className={({isActive})=> isActive ? "font-bold text-black border-b-4 border-purple-900" : "text-gray-800"}
-            to="/">
+            to="/home">
             Dashboard
           </NavLink>
         </h1>

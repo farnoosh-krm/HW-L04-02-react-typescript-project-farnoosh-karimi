@@ -6,7 +6,7 @@ import { Navigate } from 'react-router-dom'
 const ProtectRouts = ({children}:{children:JSX.Element}) => {
   
     const user = useSelector((state: RootState) => state.auth.currentUser)
-    return user ? children : <Navigate to="/Account"/>
+    return user ? children : <Navigate to="/"/>
 }
 
 export default ProtectRouts

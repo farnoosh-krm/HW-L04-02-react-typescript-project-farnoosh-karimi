@@ -11,11 +11,11 @@ const UserSlice = createSlice({
             state.push(action.payload);
             localStorage.setItem("users", JSON.stringify(state));
         },
-        removeUser: (state, action: PayloadAction<number>): void => {
+        removeUser: (state, action: PayloadAction<number>) => {
             const userIdToRemove = action.payload;
             const updatedUsers = state.filter(user => user.id !== userIdToRemove);
             localStorage.setItem("users", JSON.stringify(updatedUsers));
-            return updatedUsers; // Return the updated state- error???
+            return updatedUsers; // Return the updated state
         }
     }
 });

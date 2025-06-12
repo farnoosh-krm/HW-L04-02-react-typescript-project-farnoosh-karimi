@@ -66,8 +66,4 @@ taskManagerApplication/
 
 ## License
 
-[MIT](LICENSE)
-
----
-
 Made with ❤️ by [Farnoosh Karimi](https://github.com/farnoosh-krm)

@@ -1,54 +1,73 @@
-# React + TypeScript + Vite
+# Task Manager Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple and efficient task management application built with React and TypeScript.
 
-Currently, two official plugins are available:
+🌐 Live Demo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Experience the app:[View Online](https://hw-l04-02-react-typescript-project-pgw5.onrender.com/)
 
-## Expanding the ESLint configuration
+## Features
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- Add, edit, and delete tasks
+- Mark tasks as completed
+- Filter tasks by status (all, active, completed)
+- just desktop devices
+- Type-safe codebase using TypeScript
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## Getting Started
+
+### Prerequisites
+
+- Node.js (v14 or higher)
+- npm or yarn
+
+### Installation
+
+```bash
+git clone https://github.com/farnoosh-krm/HW-L04-02-react-typescript-project-farnoosh-karimi.git
+cd taskManagerApplication
+npm install
+# or
+yarn install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Running the App
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+```bash
+npm start
+# or
+npm run dev
+# or
+yarn start
 ```
+
+The app will be available at [http://localhost:3000](http://localhost:3000).
+
+## Project Structure
+
+```
+taskManagerApplication/
+├── public/
+├── src/
+│   ├── components/
+│   ├── types/
+│   ├── App.tsx
+│   └── index.tsx
+├── package.json
+└── README.md
+```
+
+## Technologies Used
+
+- React
+- TypeScript
+- tailwind
+- redux
+
+## License
+
+[MIT](LICENSE)
+
+---
+
+Made with ❤️ by [Farnoosh Karimi](https://github.com/farnoosh-krm)
